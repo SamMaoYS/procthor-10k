@@ -16,7 +16,8 @@ def export_split(dataset, split, output_dir):
     for i in tqdm(range(num_houses)):
         house_data = split_data[i]
         house_dict = json.loads(house_data.decode('utf-8'))
-        save_json(house_dict, os.path.join(output_dir, split, f'procthor-{split}-{i}.json'))
+        split_name = split.capitalize()
+        save_json(house_dict, os.path.join(output_dir, split, f'ProcTHOR-{split_name}-{i}.json'))
 
 def main(args):
     dataset = prior.load_dataset("procthor-10k")
